@@ -1,33 +1,17 @@
-auth_enabled: false
-
 server:
-  http_listen_port: 3100
+  http_listen_port: 9080
 
-common:
-  path_prefix: /loki
-  storage:
-    filesystem:
-      chunks_directory: /loki/chunks
-      rules_directory: /loki/rules
-  replication_factor: 1
-  ring:
-    kvstore:
-      store: inmemory
+positions:
+  filename: /tmp/positions.yaml
 
-schema_config:
-  configs:
-    - from: 2024-01-01
-      store: boltdb-shipper
-      object_store: filesystem
-      schema: v11
-      index:
-        prefix: index_
-        period: 24h
+clients:
+  - url: http://loki:3100/loki/api/v1/push
 
-storage_config:
-  filesystem:
-    directory: /loki/chunks
-
-limits_config:
-  retention_period: 168h
-  allow_structured_metadata: false
+scrape_configs:
+  - job_name: container-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: container-logs
+          __path__: /var/lib/docker/containers/*/*.log
