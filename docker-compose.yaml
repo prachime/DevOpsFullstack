@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   frontend:
     build: ./frontend
     ports:
@@ -23,7 +24,7 @@ services:
     ports:
       - "3001:3000"
 
-    cadvisor:
+  cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
@@ -51,4 +52,4 @@ services:
       - ./promtail-config.yml:/etc/promtail/promtail-config.yml
     command: -config.file=/etc/promtail/promtail-config.yml
     depends_on:
-      - loki    
+      - loki
