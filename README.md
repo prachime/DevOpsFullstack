@@ -122,16 +122,16 @@ cd DevOpsFullstack
 
 ### 2. 🛠️ Backend Setup
 ```
-- cd backend
-- pip install -r requirements.txt
-- uvicorn main:app --reload --host 0.0.0.0 --port 8000
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 ---
 ### 3. Frontend Setup
 ```
-- cd frontend
-- npm install
-- npm run dev
+cd frontend
+npm install
+npm run dev
 ```
 ---
 ## 🔐 Environment Variables
@@ -154,19 +154,14 @@ docker-compose up -d --build
 ```
 ### Services
 
-Service                        Port
----
-Frontend                       3000
----
-Backend                        8000
----
-Prometheus                     9090
----
-Grafana                        3001
----
-Loki                           3100
----
-cAdvisor                       8080
+| Service    | Port |
+| ---------- | ---- |
+| Frontend   | 3000 |
+| Backend    | 8000 |
+| Prometheus | 9090 |
+| Grafana    | 3001 |
+| Loki       | 3100 |
+| cAdvisor   | 8080 |
 
 ---
 ### ☁️ Deployment (AWS EC2)
