@@ -190,7 +190,7 @@ http://44.202.0.156:3000
 - CPU usage
 - Memory usage
 - Container health dashboards
-- 
+  
 ### Loki + Promtail
 Centralized logging
 System + container logs
@@ -223,4 +223,19 @@ GitHub Actions workflow:
 - Check cAdvisor target in prometheus.yml
 
 ---
+## 📸 Screenshots
+### Frontend Chat UI
 
+### Graph Visualization
+
+### Grafana Dashboard
+
+### Logs in Grafana (Loki)
+---
+### 🎯 Conclusion
+This project demonstrates a complete DevOps lifecycle including development, containerization, deployment, CI/CD, monitoring, and logging.
+
+It helped in understanding real-world cloud deployment and observability practices.
+---
+### 👩‍💻 Author
+#### Prachi Mehra
