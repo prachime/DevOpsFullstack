@@ -87,6 +87,7 @@ System Logs / Container Logs
 Promtail
   ───→ Loki ───→ Grafana (Logs Panel)
 
+```
 ---
 
 ## ✨ Features
