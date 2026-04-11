@@ -9,11 +9,12 @@
 #### **📖 Introduction**
 
 SupaChat is a full-stack conversational analytics platform that allows users to query a **Supabase PostgreSQL database using natural language.**
+
 It converts user queries into database operations and returns results as:
 
-* 💬 Chatbot responses
-* 📊 Interactive tables
-* 📈 Recharts visualizations
+- 💬 Chatbot responses
+- 📊 Interactive tables
+- 📈 Recharts visualizations
 
 The project is designed with a **production-grade DevOps lifecycle:**
 
@@ -74,6 +75,7 @@ Response (Chat + Table + Graph)
 
 ### ⚙️ DevOps Features
 - Dockerized services
+- CI/CD Pipeline
 - Prometheus monitoring
 - Grafana dashboards
 - Loki + Promtail logging
@@ -99,6 +101,7 @@ Response (Chat + Table + Graph)
 
 ### DevOps
 - Docker & Docker Compose
+- AWS EC2
 - Nginx (Reverse Proxy)
 - Prometheus
 - Grafana
@@ -112,28 +115,31 @@ Response (Chat + Table + Graph)
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/your-username/supachat.git
-cd supachat
----
+git clone https://github.com/prachime/DevOpsFullstack
+cd DevOpsFullstack
 ```
+---
+
 ### 2. 🛠️ Backend Setup
+```
 - cd backend
 - pip install -r requirements.txt
 - uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
 ---
-``
 ### 3. Frontend Setup
+```
 - cd frontend
 - npm install
 - npm run dev
+```
 ---
-``
 ## 🔐 Environment Variables
 
 ### Frontend (.env.local)
-
--> NEXT_PUBLIC_API_URL=http://<EC2-IP>:8000
-``
+```
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
 ## 📡 API Endpoints
 
 | Method | Endpoint  | Description |
@@ -141,11 +147,11 @@ cd supachat
 | GET    | /health  | Health check |
 | POST   | /chat    | Natural language query |
 | GET    | /test-db | Supabase connection test |
-``
+---
 ## 🐳 Docker Setup
-
-- docker-compose up -d
-``
+```
+docker-compose up -d --build
+```
 ### Services
 
 Service                        Port
@@ -163,23 +169,33 @@ Loki                           3100
 cAdvisor                       8080
 
 ---
-``
-### 📊 Monitoring Stack
+### ☁️ Deployment (AWS EC2)
+- Deployed on AWS EC2 instance
+- Docker Compose orchestration
+- Public IP access
+🌐 Live URL:
+```
+http://44.202.0.156:3000
+```
+  
+---
+## 📊 Monitoring Stack
 
 ### Prometheus
 
-- Container metrics scraping via cAdvisor
+- Collects container metrics
+- Integrated with cAdvisor
 
 ### Grafana
 - CPU usage
 - Memory usage
 - Container health dashboards
+- 
 ### Loki + Promtail
 Centralized logging
 System + container logs
 
 ---
-```
 ### 🔁 CI/CD Pipeline
 
 GitHub Actions workflow:
@@ -190,29 +206,21 @@ GitHub Actions workflow:
 - Restart containers automatically
     
 ---
-```
-### ☁️ Deployment (AWS EC2)
-- Hosted on EC2 instance
-- Docker Compose orchestration
-- Public IP based access
-- Fully reproducible deployment
----
-```
 
-### 🧪 Troubleshooting
+## 🧪 Troubleshooting
 ### Common Issues
 
-1. Backend not connecting
+##### 1. Backend not connecting
 
 - Check EC2 security group (port 8000 open)
 
-2. Grafana not loading
+##### 2. Grafana not loading
 
 - Ensure container is running on port 3001
 
-3. Prometheus no data
+##### 3. Prometheus no data
 
 - Check cAdvisor target in prometheus.yml
 
 ---
-```
+
