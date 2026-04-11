@@ -41,17 +41,51 @@ The project is designed with a **production-grade DevOps lifecycle:**
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Complete Workflow Architecture
 
-Frontend (Next.js + React + Recharts)
-↓
+```plaintext
+USER FLOW
+──────────────
+User
+  ↓
+Frontend (Next.js / React)
+  ↓
 Backend (FastAPI)
-↓
-Supabase PostgreSQL
-↓
-Analytics Processing Layer
-↓
+  ↓
+Database (Supabase PostgreSQL)
+  ↓
 Response (Chat + Table + Graph)
+
+
+DEVOPS FLOW
+──────────────
+Developer
+  ↓
+GitHub Repository
+  ↓
+CI/CD (GitHub Actions)
+  ↓
+AWS EC2
+  ↓
+Docker Compose
+  ↓
+Running Containers (Frontend + Backend + Monitoring Stack)
+
+
+MONITORING FLOW
+──────────────
+Containers
+  ↓
+cAdvisor
+  ───→ Prometheus ───→ Grafana (Dashboards)
+
+
+LOGGING FLOW
+──────────────
+System Logs / Container Logs
+  ↓
+Promtail
+  ───→ Loki ───→ Grafana (Logs Panel)
 
 ---
 
